@@ -1,0 +1,18 @@
+<view wx:if="{{!searching}}" class='container'>
+  <view class='header'>
+    <view class='box' bindtap='onSearching'>
+      <image src='/images/icon/search.png'></image>
+      <text>搜索书籍</text>
+    </view>
+  </view>
+  <view class='sub-container'>
+    <image class='header-img' src='/images/book/quality.png'></image>  
+    <view class='books-container'>
+      <block wx:for="{{books}}" wx:key="id"  wx:for-item="book">
+        <v-book book="{{book}}"/>
+      </block>
+    </view>
+  </view>
+</view>
+
+<v-search more="{{more}}" wx:if="{{searching}}" bind:cancel="onCancel"/>
